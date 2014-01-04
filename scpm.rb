@@ -13,3 +13,39 @@ class SourceCodeProFonts < Formula
   sha1     'c0e3f6f8e25b434c0e28a817539632f8a5ecb9e5'
   version  '1.017'
 end
+
+class SCPM < Formula
+  homepage 'https://github.com/fukayatsu/scpm'
+  url      'https://github.com/fukayatsu/scpm/archive/v0.0.1.tar.gz'
+  sha1     '05a830d68b7c9c317099f69f73adbd4926c1c77b'
+  version  'v0.0.1'
+
+  depends_on 'fontforge'
+
+  def install
+    share_fonts = share + 'fonts'
+
+    Migu1MFonts.new.brew { share_fonts.install Dir[*] }
+    SourceCodeProFonts.new.brew { share_fonts.install Dir[*] }
+
+    system 'fontforge', './scpm.pe'
+
+    share_fonts.install Dir['SCPM*.ttf']
+  end
+
+  test do
+    system 'false'
+  end
+
+  def caveats; <<-EOS.undent
+    ***************************************************
+    Generated files:
+      #{Dir[share+'fonts/SCPM*.ttf'].join("\n      ")}
+    ***************************************************
+    To install SCPM:
+      $ cp -f #{share}/fonts/SCPM*.ttf ~/Library/Fonts/
+      $ fc-cache -vf
+    ***************************************************
+    EOS
+  end
+end
