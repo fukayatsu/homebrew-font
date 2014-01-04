@@ -27,9 +27,9 @@ class Scpm < Formula
     p share_fonts = share + 'fonts'
 
     Migu1MFonts.new.brew        { buildpath.install Dir['*.ttf'] }
-    SourceCodeProFonts.new.brew { buildpath.install Dir['*.ttf'] }
+    SourceCodeProFonts.new.brew { buildpath.install Dir['TTF/*.ttf'] }
 
-    system 'mv', "#{buildpath}/TTF/*", "#{buildpath}/"
+    system 'mv', "#{buildpath}/TTF/*.ttf", "#{buildpath}/"
     system 'fontforge', './scpm.pe'
 
     puts 'SCPM*.ttf'
