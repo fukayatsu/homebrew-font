@@ -14,7 +14,7 @@ class SourceCodeProFonts < Formula
   version  '1.017'
 end
 
-class SCPM < Formula
+class Scpm < Formula
   homepage 'https://github.com/fukayatsu/scpm'
   url      'https://github.com/fukayatsu/scpm/archive/v0.0.1.tar.gz'
   sha1     '05a830d68b7c9c317099f69f73adbd4926c1c77b'
