@@ -23,13 +23,18 @@ class Scpm < Formula
   depends_on 'fontforge'
 
   def install
-    share_fonts = share + 'fonts'
+    puts 'share_fonts'
+    p share_fonts = share + 'fonts'
 
-    Migu1MFonts.new.brew { share_fonts.install Dir['*.ttf'] }
-    SourceCodeProFonts.new.brew { share_fonts.install Dir['TTF/*.ttf'] }
+    puts 'Migu1MFonts'
+    Migu1MFonts.new.brew { p Dir['*']; share_fonts.install Dir['*'] }
+    puts 'SourceCodeProFonts'
+    SourceCodeProFonts.new.brew { p Dir['*']; share_fonts.install Dir['*'] }
 
     system 'fontforge', './scpm.pe'
 
+    puts 'SCPM*.ttf'
+    p Dir['SCPM*.ttf']
     share_fonts.install Dir['SCPM*.ttf']
   end
 
