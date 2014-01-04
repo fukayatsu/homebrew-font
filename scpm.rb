@@ -29,7 +29,6 @@ class Scpm < Formula
     Migu1MFonts.new.brew        { buildpath.install Dir['*.ttf'] }
     SourceCodeProFonts.new.brew { buildpath.install Dir['TTF/*.ttf'] }
 
-    system 'mv', "#{buildpath}/TTF/*.ttf", "#{buildpath}/"
     system 'fontforge', './scpm.pe'
 
     puts 'SCPM*.ttf'
