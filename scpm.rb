@@ -23,6 +23,7 @@ class Scpm < Formula
   depends_on 'fontforge'
 
   def install
+    require 'pry'; binding.pry
     share_fonts = share + 'fonts'
 
     Migu1MFonts.new.brew { share_fonts.install Dir['*.ttf'] }
