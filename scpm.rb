@@ -26,11 +26,10 @@ class Scpm < Formula
     puts 'share_fonts'
     p share_fonts = share + 'fonts'
 
-    puts 'Migu1MFonts'
-    Migu1MFonts.new.brew { p Dir['*']; share_fonts.install Dir['*'] }
-    puts 'SourceCodeProFonts'
-    SourceCodeProFonts.new.brew { p Dir['*']; share_fonts.install Dir['*'] }
+    Migu1MFonts.new.brew        { buildpath.install Dir['*.ttf'] }
+    SourceCodeProFonts.new.brew { buildpath.install Dir['*.ttf'] }
 
+    system 'mv', "#{buildpath}/TTF/*", "#{buildpath}/"
     system 'fontforge', './scpm.pe'
 
     puts 'SCPM*.ttf'
