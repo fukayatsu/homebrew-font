@@ -43,7 +43,6 @@ class Scpm < Formula
     ***************************************************
     To install SCPM:
       $ cp -f #{share}/fonts/SCPM*.ttf ~/Library/Fonts/
-      $ fc-cache -vf
     ***************************************************
     EOS
   end
