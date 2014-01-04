@@ -25,8 +25,8 @@ class Scpm < Formula
   def install
     share_fonts = share + 'fonts'
 
-    Migu1MFonts.new.brew { share_fonts.install Dir['*'] }
-    SourceCodeProFonts.new.brew { share_fonts.install Dir['*'] }
+    Migu1MFonts.new.brew { share_fonts.install Dir['*.ttf'] }
+    SourceCodeProFonts.new.brew { share_fonts.install Dir['TTF/*.ttf'] }
 
     system 'fontforge', './scpm.pe'
 
